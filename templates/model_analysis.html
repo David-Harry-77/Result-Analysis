@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College PDF to Excel Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/model_analysis.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <img src="{{ url_for('static', filename='images/college-logo.png') }}" alt="College Logo" class="logo">
+            <div class="header-text">
+                <h1>St. Joseph's College of Engineering</h1>
+                <p>(An Autonomous Institution)</p>
+            </div>
+        </div>
+    </header>
+    
+    <main class="content">
+        <h2>College PDF to Excel Converter</h2>
+        <form action="{{ url_for('convert_to_excel') }}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="file" name="file" accept=".pdf" class="file-input">
+                <input type="submit" value="Convert to Excel" class="upload-button">
+            </div>
+        </form>
+        <form action="{{ url_for('model_analyse') }}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="file" name="file" accept=".xlsx" class="file-input">
+                <input type="submit" value="Analyse" class="upload-button">
+            </div>
+        </form>
+
+        <!-- New Download Button -->
+        <form action="{{ url_for('download_template') }}" method="get">
+            <div class="form-group">
+                <input type="submit" value="Download Sample File" class="download-button">
+            </div>
+        </form>
+    </main>
+    
+    <footer class="footer">
+        <p>A Webpage Developed By Students of Department Of Computer Science and Engineering</p>
+    </footer>
+</body>
+</html>

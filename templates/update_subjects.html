@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/update_subjects.css') }}">
+    <title>Add Subjects</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <img src="{{ url_for('static', filename='images/college-logo.png') }}" alt="College Logo" class="logo">
+            <div class="header-text">
+                <h1>St. Joseph's College of Engineering</h1>
+                <p>(An Autonomous Institution)</p>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="subject-container">
+            <h1>Add Subjects</h1>
+            <form action="{{ url_for('add_update_subject') }}" method="post" class="subject-form">
+                <label for="subject_code">Subject Code:</label>
+                <input type="text" id="subject_code" name="subject_code" required>
+                <label for="credits">Credits:</label>
+                <input type="number" id="credits" name="credits" required>
+                <button type="submit" class="action-button">Add Subject</button>
+            </form>
+            <br>
+            <h2>Subjects List</h2>
+            <ul class="subjects-list">
+                {% for subject_code, credits in subjects.items() %}
+                    <li>{{ subject_code }}: {{ credits }} credits</li>
+                {% endfor %}
+            </ul>
+            {% if subjects %}
+                <a href="{{ url_for('upload_files') }}" class="action-button">Proceed to Upload Files</a>
+            {% endif %}
+        </div>
+    </main>
+    <footer class="footer">
+        <p>A Webpage Developed By Students of Department Of Computer Science and Engineering</p>
+    </footer>
+</body>
+</html>
