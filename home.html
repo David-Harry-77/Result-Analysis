@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <img src="{{ url_for('static', filename='images/college-logo.png') }}" alt="College Logo" class="logo">
+            <div class="header-text">
+                <h1>St. Joseph's College of Engineering</h1>
+                <p>(An Autonomous Institution)</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </header>
+    <main>
+        <div class="tool">
+            <div class="tool-info">
+                <h2>PDF Converter</h2>
+                <p>Converts result PDF to appropriate Excel format</p>
+            </div>
+            <a href="{{ url_for('pdf_converter') }}" class="action-button">PDF Converter</a>
+        </div>
+        <div class="tool">
+            <div class="tool-info">
+                <h2>Result Analyzer</h2>
+                <p>Calculates GPA and CGPA using Grade Points of Subjects</p>
+            </div>
+            <a href="{{ url_for('analyse') }}" class="action-button">Analyse Subjects</a>
+        </div>
+        <div class="tool">
+            <div class="tool-info">
+                <h2>Update Arrear</h2>
+                <p>Updates Arrear grades and grade points to the Main Excel</p>
+            </div>
+            <a href="{{ url_for('update_subjects') }}" class="action-button">Update Arrear</a>
+        </div>
+        <div class="tool">
+            <div class="tool-info">
+                <h2>Model Analysis</h2>
+                <p>Converts result PDF to appropriate Excel format and Analyze Results</p>
+            </div>
+            <a href="{{ url_for('model_analysis') }}" class="action-button">Model Analysis</a>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>A Webpage Developed By Students of Department Of Computer Science and Engineering</p>
+    </footer>
+</body>
+</html>
